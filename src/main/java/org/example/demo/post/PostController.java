@@ -1,0 +1,19 @@
+package org.example.demo.post;
+
+import lombok.RequiredArgsConstructor;
+import org.example.demo.post.model.PostDto;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/post")
+public class PostController {
+    private final PostService postService;
+
+    @PostMapping("/create")
+    public ResponseEntity create(@RequestBody PostDto.CreateReq dto) {
+        postService.create(dto);
+        return ResponseEntity.ok("게시글 작성 성공");
+    }
+}

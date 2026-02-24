@@ -1,9 +1,6 @@
 package org.example.demo.user.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 public class UserDto {
 
@@ -12,6 +9,7 @@ public class UserDto {
     public static class SignupReq {
         private String name;
         private String email;
+        @Setter
         private String password;
 
         public User toEntity() {
@@ -25,6 +23,7 @@ public class UserDto {
 
     @Getter
     @AllArgsConstructor
+    @NoArgsConstructor
     public static class LoginReq {
         private String email;
         private String password;
